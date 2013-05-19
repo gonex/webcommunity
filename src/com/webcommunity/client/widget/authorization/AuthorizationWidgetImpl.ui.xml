@@ -1,0 +1,28 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+
+	.action-button {
+	  margin-top:4px;
+	}		
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:HorizontalPanel spacing="5" width="115px">
+			<g:VerticalPanel width="105px">
+			<g:VerticalPanel width="105px" ui:field="panelLogon">
+				<g:Label text="Brugernavn:" width="105px"/>
+				<g:TextBox width="105px" height="32" ui:field="txtUsername" maxLength="32"/>
+				<g:Label text="Kodeord:" width="105px"/>
+				<g:PasswordTextBox width="105px" height="32" ui:field="txtPassword" maxLength="32"/>
+				<g:Button styleName="{style.action-button}" ui:field="btnLogon" width="84px" height="32px">Log på</g:Button>
+			</g:VerticalPanel>
+			<g:VerticalPanel width="115px" ui:field="panelLogoff">
+				<g:Label width="105px" ui:field="lblLogoff"/>
+				<g:Button styleName="{style.action-button}" ui:field="btnLogoff" width="84px" height="32px">Log ud</g:Button>
+			</g:VerticalPanel>
+		</g:VerticalPanel>
+		</g:HorizontalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

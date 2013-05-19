@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  
+  <!-- remote logging servlet -->
+  <servlet>
+    <servlet-name>remoteLoggingService</servlet-name>
+    <servlet-class>com.google.gwt.logging.server.RemoteLoggingServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>remoteLoggingService</servlet-name>
+    <url-pattern>/webcommunity/remote_logging</url-pattern>
+  </servlet-mapping>
+  
+  <!-- authorization servlet -->
+  <servlet>
+    <servlet-name>authorizationService</servlet-name>
+    <servlet-class>com.webcommunity.server.authorization.AuthorizationServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>authorizationService</servlet-name>
+    <url-pattern>/webcommunity/authorizationService</url-pattern>
+  </servlet-mapping>
+
+  <!-- users servlet -->
+  <servlet>
+    <servlet-name>usersService</servlet-name>
+    <servlet-class>com.webcommunity.server.users.UsersServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>usersService</servlet-name>
+    <url-pattern>/webcommunity/usersService</url-pattern>
+  </servlet-mapping>
+  
+  <!-- events servlet -->
+  <servlet>
+    <servlet-name>eventsService</servlet-name>
+    <servlet-class>com.webcommunity.server.events.EventsServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>eventsService</servlet-name>
+    <url-pattern>/webcommunity/eventsService</url-pattern>
+  </servlet-mapping>
+
+  <!-- user edit servlet -->
+  <servlet>
+    <servlet-name>userEditService</servlet-name>
+    <servlet-class>com.webcommunity.server.useredit.UserEditServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>userEditService</servlet-name>
+    <url-pattern>/webcommunity/userEditService</url-pattern>
+  </servlet-mapping>
+  
+  <!-- bulletin board servlet -->
+  <servlet>
+    <servlet-name>bulletinBoardService</servlet-name>
+    <servlet-class>com.webcommunity.server.bulletinBoard.BulletinBoardServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>bulletinBoardService</servlet-name>
+    <url-pattern>/webcommunity/bulletinBoardService</url-pattern>
+  </servlet-mapping>
+  
+  <!-- cron mail dispatch servlet -->
+  <servlet>
+    <servlet-name>cronMailDispatchHandler</servlet-name>
+    <servlet-class>com.webcommunity.server.cron.CronMailDispatchHandler</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>cronMailDispatchHandler</servlet-name>
+    <url-pattern>/webcommunity/cronMailDispatchHandler</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>Webcommunity.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

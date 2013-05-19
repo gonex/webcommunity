@@ -1,0 +1,19 @@
+indexes:
+
+- kind: UserEntry
+  ancestor: yes
+  properties:
+  - name: userRole
+    direction: asc
+
+- kind: PostingEntry
+  ancestor: yes
+  properties:
+  - name: date
+    direction: desc
+
+- kind: PendingMailEntry
+  ancestor: yes
+  properties:
+  - name: date
+    direction: asc

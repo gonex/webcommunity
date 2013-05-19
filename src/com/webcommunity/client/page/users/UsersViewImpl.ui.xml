@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<h2>Beboere</h2>
+		<p>
+		<g:HorizontalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
+			<g:VerticalPanel width="550px" horizontalAlignment="ALIGN_LEFT">
+				<g:FlexTable ui:field="usersTable" width="100%"/>
+				<g:FlexTable ui:field="emailSelectionsTable" width="100%"/>
+				<g:Anchor ui:field="userEdit" text="Ret mine oplysninger" styleName="navigation-link" visible="false" ></g:Anchor>
+			</g:VerticalPanel>
+		</g:HorizontalPanel>
+		</p>
+	</g:HTMLPanel>
+</ui:UiBinder> 

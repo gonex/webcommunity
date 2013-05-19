@@ -1,0 +1,234 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <style type="text/css">
+    
+      /* HTML Style */
+    
+	  body.main-layout {
+	    background-color:gray;
+	    border-style:none;
+	    overflow:scroll;
+	  }
+
+	  table.layout-table {
+	    margin-left:auto; 
+	    margin-right:auto;
+	    width:975px;
+	  }
+	  
+	  img.header-image {
+	    border:black 1px solid;
+	  }
+	  
+	  td.navigation-column {
+	    vertical-align:top;
+	    width: 125px;
+	  }
+	  
+	  div.navigation-widget {
+	    background-color:white;
+	    border:black 1px solid;
+	  }
+
+	  td.content-column {
+	    vertical-align:top;
+	  }
+
+	  div.content-panel {
+        background-color:white;
+	    border:black 1px solid;
+	  }
+	  
+	  td.authorization-column {
+	    vertical-align:top;
+	    width: 125px;
+	  }
+
+	  div.authorization-widget {
+	    background-color:white;
+	    border:black 1px solid;
+	    font-family:Verdana;
+        font-size:9pt;
+        color:black;
+	  }
+
+	  h2 {
+        font-family:Arial;
+        font-size:16pt;
+        color:black;
+        margin-left:8px;
+        margin-right:8px;
+        margin-top:8px;
+        margin-bottom:40px;
+	  }
+	  
+	  p {
+	    align:center;
+	    text-align:center;
+        font-family:Arial;
+        font-size:10pt;
+        color:black;
+        line-height:200%;
+        margin-left:8px;
+        margin-right:8px;
+        margin-top:8px;
+        margin-bottom:40px;
+	  }
+
+	  h2.postingTitle {
+        margin-left:0px;
+        margin-right:0px;
+        margin-top:0px;
+        margin-bottom:0px;
+	  }
+
+	  h3.postingInfo {
+        font-family:Arial;
+        font-size:8pt;
+        color:gray;
+        margin-left:4px;
+        margin-right:4px;
+        margin-top:0px;
+        margin-bottom:4px;
+	  }
+
+	  p.postingContent {
+	    align:left;
+	    text-align:left;
+        line-height:100%;
+        margin-left:4px;
+        margin-right:4px;
+        margin-top:4px;
+        margin-bottom:0px;
+	  }
+
+      a.admin-link:link {
+        font-family:Verdana;
+        font-size:8pt;
+		color:black;
+	  }
+	  
+      a.admin-link:visited {
+        font-family:Verdana;
+        font-size:8pt;
+		color:black;
+	  }
+	  
+      a.admin-link:hover {
+        font-family:Verdana;
+        font-size:8pt;
+		color:black;
+	  }
+	  
+      a.admin-link:active {
+        font-family:Verdana;
+        font-size:8pt;
+		color:black;
+	  }
+	  	  
+	  /* GWT Style */
+	  
+      .navigation-link {
+        margin:4px;
+        cursor:pointer;
+        font-family:Verdana;
+        font-size:9pt;
+        font-weight:bold;
+        color:black;
+      }
+	
+	  .navigation-link:hover {
+	    color:gray;
+	  }
+	  
+      .tableList {
+        text-align:left;
+        padding:2px;
+        border:1px solid silver;
+      }
+
+      .tableListHeader {
+        background-color:gray;
+        color:white;
+        font-style:bold;
+      }
+
+      .eventsListDateColumn {
+        width:80px;
+      }
+
+      .eventsListDeleteColumn {
+        width:35px;
+      }
+      
+      .textArea-selected {
+        resize: vertical;
+        width:98%;
+      }
+
+      .textArea-posting {
+        resize: none;
+      }
+
+  	</style>
+
+    <title>Grundejerforeningen Søholm</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    <script type="text/javascript" language="javascript" src="webcommunity/webcommunity.nocache.js"></script>
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <body class="main-layout">
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+
+      <table class="layout-table">
+        <tr>
+          <td colspan="3">
+            <img class="header-image" src="header_img.jpg">
+          <td/>
+        </tr>
+
+        <tr>
+          <td class="navigation-column">
+            <div class="navigation-widget" id="navigationWidget"></div>
+          </td>
+          <td class="content-column">
+            <div class="content-panel" id="contentPanel"></div>
+            <a class="admin-link" href="https://appengine.google.com/" target="_blank">Administration</a>
+          </td>
+          <td class="authorization-column">
+            <div class="authorization-widget" id="authorizationWidget"></div>
+          </td>
+        </tr>
+      </table>
+
+  </body>
+</html>
