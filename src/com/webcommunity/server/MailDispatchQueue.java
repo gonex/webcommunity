@@ -46,7 +46,7 @@ public class MailDispatchQueue {
 	public static void enqueuePostingToUsers(PostingEntry postingEntry) {
 		try {
 			String title = "Nyt på opslagstavlen: " + postingEntry.getTitle();
-			String text =  "Gå til http://gf.prezz.net/#BulletinBoard for at læse opslaget.";
+			String text =  "Gå til http://gf.prezz.net/#BulletinBoard for at læse opslaget med titlen " + postingEntry.getTitle() + ".";
 			enqueueMailToUsers(title, text);
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error enqueing postings to email dispatch queue", ex);
@@ -57,7 +57,7 @@ public class MailDispatchQueue {
 		try {
 			if (!oldUserEntry.getEmail().equalsIgnoreCase(newUserEntry.getEmail()) || !oldUserEntry.getPhone().equalsIgnoreCase(newUserEntry.getPhone())) {
 				String title = "Ændrede kontaktoplysninger: " + newUserEntry.getDisplayName();
-				String text =  "Gå til http://gf.prezz.net/#Users for at se de opdaterede kontaktinfomationer.";
+				String text =  "Gå til http://gf.prezz.net/#Users for at se de opdaterede kontaktinfomationer for " + newUserEntry.getDisplayName() + ".";
 				enqueueMailToUsers(title, text);
 			}
 		} catch (Exception ex) {
