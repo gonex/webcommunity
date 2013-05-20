@@ -3,8 +3,10 @@ package com.webcommunity.server;
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -87,14 +89,17 @@ public class MailDispatchQueue {
 	}
 	
 	private static void enqueueMailToUsers(String subject, String text) {
+		Set<String> trackDublicatesSet = new HashSet<String>();
+		
 		Date dateNow = Calendar.getInstance().getTime();
 		UserEntry[] allUsers = UserManager.getAllUsers();
 		for (UserEntry userEntry : allUsers) {
 			try {
-				if (Boolean.TRUE.equals(userEntry.getSubscribe())) {
+				if (Boolean.TRUE.equals(userEntry.getSubscribe()) && !trackDublicatesSet.contains(userEntry.getEmail())) {
 					InternetAddress emailAddress = createEmailAddress(userEntry.getEmail(), null);
 					if (emailAddress != null) {
-						enqueueMail(dateNow, emailAddress.getAddress(), subject, text);
+						trackDublicatesSet.add(userEntry.getEmail());
+						enqueueMail(dateNow, userEntry.getEmail(), subject, text);
 					}
 				}
 			} catch (Exception ex) {
