@@ -47,9 +47,18 @@ public class MailDispatchQueue {
 	
 	public static void enqueuePostingToUsers(PostingEntry postingEntry) {
 		try {
-			String title = "Nyt på opslagstavlen: " + postingEntry.getTitle();
-			String text =  "Gå til http://gf.prezz.net/#BulletinBoard for at læse opslaget med titlen " + postingEntry.getTitle() + ".";
-			enqueueMailToUsers(title, text);
+			String title = "Der er kommet et nyt opslag på opslagstavlen";
+			
+			StringBuilder text = new StringBuilder();
+			text.append(postingEntry.getTitle());
+			text.append(System.getProperty("line.separator"));
+			text.append(System.getProperty("line.separator"));
+			text.append(postingEntry.getContent());
+			text.append(System.getProperty("line.separator"));
+			text.append(System.getProperty("line.separator"));
+			text.append("Husk du kan altid læse gamle opslag, eller selv lave et nyt opslag på addressen http://gf.prezz.net/#BulletinBoard");
+
+			enqueueMailToUsers(title, text.toString());
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error enqueing postings to email dispatch queue", ex);
 		}
@@ -58,9 +67,20 @@ public class MailDispatchQueue {
 	public static void enqueueUserInformationToUsers(UserEntry oldUserEntry, UserEntry newUserEntry) {
 		try {
 			if (!oldUserEntry.getEmail().equalsIgnoreCase(newUserEntry.getEmail()) || !oldUserEntry.getPhone().equalsIgnoreCase(newUserEntry.getPhone())) {
-				String title = "Ændrede kontaktoplysninger: " + newUserEntry.getDisplayName();
-				String text =  "Gå til http://gf.prezz.net/#Users for at se de opdaterede kontaktinfomationer for " + newUserEntry.getDisplayName() + ".";
-				enqueueMailToUsers(title, text);
+				String title = newUserEntry.getDisplayName() + " har ændret sine kontaktoplysninger";
+				
+				StringBuilder text = new StringBuilder();
+				text.append("Nye kontaktoplysninger for " + newUserEntry.getDisplayName() + " er:");
+				text.append(System.getProperty("line.separator"));
+				text.append(System.getProperty("line.separator"));
+				text.append("Email: " + newUserEntry.getEmail());
+				text.append(System.getProperty("line.separator"));
+				text.append("Telefonnummer: " + newUserEntry.getPhone());
+				text.append(System.getProperty("line.separator"));
+				text.append(System.getProperty("line.separator"));
+				text.append("Husk du kan altid se folks kontaktoplysninger, eller ændre dine egne kantaktoplysninger på addressen http://gf.prezz.net/#Users");
+
+				enqueueMailToUsers(title, text.toString());
 			}
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error enqueing postings to email dispatch queue", ex);
@@ -109,6 +129,10 @@ public class MailDispatchQueue {
 	}
 	
 	private static void enqueueMail(Date date, String email, String subject, String text) {
+//		if (!"mikael.heinze@gmail.com".equalsIgnoreCase(email)) {
+//			return;
+//		}
+		
 		Entity entity = new Entity(ENTRY_KIND, ANCHESTOR_KEY);
 		entity.setProperty(DATE, date);
 		entity.setProperty(EMAIL, email);
