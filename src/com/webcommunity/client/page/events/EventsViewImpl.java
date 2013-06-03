@@ -64,7 +64,7 @@ public class EventsViewImpl extends Composite implements EventsView {
 			}
 		}
 		
-		addDialog.setVisible(presenter.getUserRole() >= UserRole.SUPER_USER);
+		addDialog.setVisible(presenter.getUserRole() >= UserRole.NORMAL);
 	}
 
 	@UiHandler("addDialog")

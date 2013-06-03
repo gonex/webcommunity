@@ -34,7 +34,7 @@ public class EventsServiceImpl extends RemoteServiceServlet implements EventsSer
 	
 	@Override
 	public EventEntry[] addNewEvent(String sessionId, EventEntry eventEntry) {
-		if (hasUserRole(sessionId, UserRole.SUPER_USER)) {
+		if (hasUserRole(sessionId, UserRole.NORMAL)) {
 			Entity entity = new Entity(ENTRY_KIND, ANCHESTOR_KEY);
 			entity.setProperty(DATE, eventEntry.getDate());
 			entity.setProperty(DESCRIPTION, eventEntry.getDescription());
