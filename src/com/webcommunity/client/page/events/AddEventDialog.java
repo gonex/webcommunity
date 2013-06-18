@@ -53,6 +53,7 @@ public class AddEventDialog extends PopupPanel {
 		grid.getCellFormatter().setVerticalAlignment(0, 1, HasVerticalAlignment.ALIGN_MIDDLE);
 		
 		final TextBox textBox = new TextBox();
+		textBox.setMaxLength(100);
 		grid.setWidget(1, 1, textBox);
 		textBox.setWidth("260px");
 		grid.getCellFormatter().setVerticalAlignment(1, 1, HasVerticalAlignment.ALIGN_MIDDLE);

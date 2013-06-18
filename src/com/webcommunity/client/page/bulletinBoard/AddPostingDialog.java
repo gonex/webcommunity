@@ -33,6 +33,7 @@ public class AddPostingDialog extends PopupPanel {
 		lblHeader.setSize("181px", "18px");
 		
 		final TextBox textBoxTitle = new TextBox();
+		textBoxTitle.setMaxLength(100);
 		absolutePanel.add(textBoxTitle, 10, 80);
 		textBoxTitle.setWidth("470px");
 

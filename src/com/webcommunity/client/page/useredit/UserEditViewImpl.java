@@ -68,48 +68,56 @@ public class UserEditViewImpl extends Composite implements UserEditView {
 		if (userEntry != null) {
 			editUserTable.setText(1, 0, "Brugernavn");
 			username = new TextBox();
+			username.setMaxLength(50);
 			username.setWidth("170px");
 			username.setText(userEntry.getUsername());
 			editUserTable.setWidget(1, 1, username);
 	
 			editUserTable.setText(2, 0, "Kodeord");
 			password = new PasswordTextBox();
+			password.setMaxLength(50);
 			password.setWidth("170px");
 			password.setText(userEntry.getPassword());
 			editUserTable.setWidget(2, 1, password);
 			
 			editUserTable.setText(3, 0, "Bekræft kodeord");
 			confirmPassword = new PasswordTextBox();
+			confirmPassword.setMaxLength(50);
 			confirmPassword.setWidth("170px");
 			confirmPassword.setText(userEntry.getPassword());
 			editUserTable.setWidget(3, 1, confirmPassword);
 
 			editUserTable.setText(4, 0, "Fornavn");
 			firstname = new TextBox();
+			firstname.setMaxLength(50);
 			firstname.setWidth("170px");
 			firstname.setText(userEntry.getFirstname());
 			editUserTable.setWidget(4, 1, firstname);
 	
 			editUserTable.setText(5, 0, "Efternavn");
 			lastname = new TextBox();
+			lastname.setMaxLength(50);
 			lastname.setWidth("170px");
 			lastname.setText(userEntry.getLastname());
 			editUserTable.setWidget(5, 1, lastname);
 
 			editUserTable.setText(6, 0, "Addresse");
 			address = new TextBox();
+			address.setMaxLength(50);
 			address.setWidth("170px");
 			address.setText(userEntry.getAddress());
 			editUserTable.setWidget(6, 1, address);
 			
 			editUserTable.setText(7, 0, "Email");
 			email = new TextBox();
+			email.setMaxLength(50);
 			email.setWidth("170px");
 			email.setText(userEntry.getEmail());
 			editUserTable.setWidget(7, 1, email);
 	
 			editUserTable.setText(8, 0, "Telefon");
 			phone = new TextBox();
+			phone.setMaxLength(50);
 			phone.setWidth("170px");
 			phone.setText(userEntry.getPhone());
 			editUserTable.setWidget(8, 1, phone);
