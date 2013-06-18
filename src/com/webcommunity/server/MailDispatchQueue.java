@@ -78,7 +78,7 @@ public class MailDispatchQueue {
 				text.append("Telefonnummer: " + newUserEntry.getPhone());
 				text.append(System.getProperty("line.separator"));
 				text.append(System.getProperty("line.separator"));
-				text.append("Husk du kan altid se folks kontaktoplysninger, eller ændre dine egne kantaktoplysninger på addressen http://gf.prezz.net/#Users");
+				text.append("Husk du kan altid se folks kontaktoplysninger, eller ændre dine egne kontaktoplysninger på addressen http://gf.prezz.net/#Users");
 
 				enqueueMailToUsers(title, text.toString());
 			}
