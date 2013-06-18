@@ -13,6 +13,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.datastore.Text;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.webcommunity.client.page.bulletinBoard.service.BulletinBoardService;
 import com.webcommunity.server.MailDispatchQueue;
@@ -57,7 +58,7 @@ public class BulletinBoardServiceImpl extends RemoteServiceServlet implements Bu
 							(Date)e.getProperty(DATE),
 							getDisplayName(sessionId, (String)e.getProperty(USER)),
 							(String)e.getProperty(TITLE),
-							(String)e.getProperty(CONTENT),
+							((Text)e.getProperty(CONTENT)).getValue(),
 							lastPostingOffset == (offset + i)));
 		}
 		
@@ -71,7 +72,7 @@ public class BulletinBoardServiceImpl extends RemoteServiceServlet implements Bu
 			entity.setProperty(DATE, getDateNow());
 			entity.setProperty(USER, getUserId(sessionId));
 			entity.setProperty(TITLE, postingEntry.getTitle());
-			entity.setProperty(CONTENT, postingEntry.getContent());
+			entity.setProperty(CONTENT, new Text(postingEntry.getContent()));
 
 			DatastoreService datastore = getDatastoreService();
 			datastore.put(entity);

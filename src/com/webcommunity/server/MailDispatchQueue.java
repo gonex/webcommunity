@@ -27,6 +27,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.datastore.Text;
 import com.webcommunity.shared.bulletinBoard.PostingEntry;
 import com.webcommunity.shared.users.UserEntry;
 
@@ -98,7 +99,7 @@ public class MailDispatchQueue {
 			try {
 				email = (String)e.getProperty(EMAIL);
 				String subject = (String)e.getProperty(SUBJECT);
-				String text = (String)e.getProperty(TEXT);
+				String text = ((Text)e.getProperty(TEXT)).getValue();
 				dispachMail(email, subject, text);
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error dispaching mail to " + email, ex);
@@ -137,7 +138,7 @@ public class MailDispatchQueue {
 		entity.setProperty(DATE, date);
 		entity.setProperty(EMAIL, email);
 		entity.setProperty(SUBJECT, subject);
-		entity.setProperty(TEXT, text);
+		entity.setProperty(TEXT, new Text(text));
 
 		DatastoreService datastore = getDatastoreService();
 		datastore.put(entity);
