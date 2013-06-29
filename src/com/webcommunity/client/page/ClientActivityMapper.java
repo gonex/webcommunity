@@ -6,6 +6,8 @@ import com.google.gwt.place.shared.Place;
 import com.webcommunity.client.ClientFactory;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardActivity;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardPlace;
+import com.webcommunity.client.page.documents.DocumentsActivity;
+import com.webcommunity.client.page.documents.DocumentsPlace;
 import com.webcommunity.client.page.events.EventsActivity;
 import com.webcommunity.client.page.events.EventsPlace;
 import com.webcommunity.client.page.useredit.UserEditActivity;
@@ -35,6 +37,8 @@ public class ClientActivityMapper implements ActivityMapper {
             return new UsersActivity((UsersPlace) place, clientFactory);
         } else if (place instanceof UserEditPlace) {
         	return new UserEditActivity((UserEditPlace) place, clientFactory);
+        } else if (place instanceof DocumentsPlace) {
+        	return new DocumentsActivity((DocumentsPlace) place, clientFactory);
         }
         
         return null;

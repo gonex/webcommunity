@@ -5,6 +5,8 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardView;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardViewImpl;
+import com.webcommunity.client.page.documents.DocumentsView;
+import com.webcommunity.client.page.documents.DocumentsViewImpl;
 import com.webcommunity.client.page.events.EventsView;
 import com.webcommunity.client.page.events.EventsViewImpl;
 import com.webcommunity.client.page.useredit.UserEditView;
@@ -31,6 +33,8 @@ public class ClientFactoryImpl implements ClientFactory {
     private final EventsView eventsView = new EventsViewImpl();
     private final UsersView usersView = new UsersViewImpl(placeController);
     private final UserEditView userEditView = new UserEditViewImpl();
+    private final DocumentsView documentsView = new DocumentsViewImpl();
+    
     
     @Override
 	public EventBus getEventBus() {
@@ -80,5 +84,10 @@ public class ClientFactoryImpl implements ClientFactory {
 	@Override
 	public UserEditView getUserEditView() {
 		return userEditView;
+	}
+
+	@Override
+	public DocumentsView getDocumentsView() {
+		return documentsView;
 	}
 }

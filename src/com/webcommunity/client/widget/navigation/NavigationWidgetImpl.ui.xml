@@ -10,6 +10,7 @@
 		  <g:Anchor ui:field="bulletinBoard" text="Opslagstavle" styleName="navigation-link" ></g:Anchor>
 		  <g:Anchor ui:field="events" text="Begivenheder" styleName="navigation-link" ></g:Anchor>
 		  <g:Anchor ui:field="users" text="Beboere" styleName="navigation-link" ></g:Anchor>
+		  <g:Anchor ui:field="documents" text="Dokumenter" styleName="navigation-link" ></g:Anchor>
   		</g:VerticalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

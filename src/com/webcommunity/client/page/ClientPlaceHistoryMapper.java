@@ -4,59 +4,70 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.place.shared.WithTokenizers;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardPlace;
+import com.webcommunity.client.page.documents.DocumentsPlace;
 import com.webcommunity.client.page.events.EventsPlace;
 import com.webcommunity.client.page.useredit.UserEditPlace;
 import com.webcommunity.client.page.users.UsersPlace;
 import com.webcommunity.client.page.welcome.WelcomePlace;
 
-@WithTokenizers({WelcomePlace.Tokenizer.class, BulletinBoardPlace.Tokenizer.class, EventsPlace.Tokenizer.class, UsersPlace.Tokenizer.class, UserEditPlace.Tokenizer.class})
+@WithTokenizers({WelcomePlace.Tokenizer.class, BulletinBoardPlace.Tokenizer.class, EventsPlace.Tokenizer.class, UsersPlace.Tokenizer.class, UserEditPlace.Tokenizer.class, DocumentsPlace.Tokenizer.class})
 public class ClientPlaceHistoryMapper implements PlaceHistoryMapper {
 
+	private static final String WELCOME = "Welcome";
+	private static final String BULLETIN_BOARD = "BulletinBoard";
+	private static final String EVENTS = "Events";
+	private static final String USERS = "Users";
+	private static final String USER_EDIT = "UserEdit";
+	private static final String DOCUMENTS = "Documents";
+
+	
     @Override
-    public Place getPlace(String token)
-    {
+    public Place getPlace(String token) {
     	String[] tokens = token.split("\\?", 2); 
 
-		if ("Welcome".equals(tokens[0])) {
+		if (WELCOME.equals(tokens[0])) {
 			return new WelcomePlace();
-		} else if ("BulletinBoard".equals(tokens[0])) {
+		} else if (BULLETIN_BOARD.equals(tokens[0])) {
 			if (tokens.length > 1) {
 				return new BulletinBoardPlace(tokens[1]);
 			} else {
 				return new BulletinBoardPlace();
 			}
-		} else if ("Events".equals(tokens[0])) {
+		} else if (EVENTS.equals(tokens[0])) {
 			return new EventsPlace();
-		} else if ("Users".equals(tokens[0])) {
+		} else if (USERS.equals(tokens[0])) {
 			return new UsersPlace();
-		} else if ("UserEdit".equals(tokens[0])) {
+		} else if (USER_EDIT.equals(tokens[0])) {
 			return new UserEditPlace();
+		} else if (DOCUMENTS.equals(tokens[0])) {
+			return new DocumentsPlace();
 		}
 
 		return new WelcomePlace();
     }
 
     @Override
-    public String getToken(Place place)
-    {
+    public String getToken(Place place) {
         if (place instanceof WelcomePlace) {
-            return "Welcome";
+            return WELCOME;
         } else if (place instanceof BulletinBoardPlace) {
         	StringBuilder sb = new StringBuilder();
-        	sb.append("BulletinBoard");
+        	sb.append(BULLETIN_BOARD);
         	if (((BulletinBoardPlace)place).getPage() != null) {
         		sb.append("?");
         		sb.append(((BulletinBoardPlace)place).getPage());
         	}
             return sb.toString();
         } else if (place instanceof EventsPlace) {
-            return "Events";
+            return EVENTS;
         } else if (place instanceof UsersPlace) {
-            return "Users";
+            return USERS;
         } else if (place instanceof UserEditPlace) {
-            return "UserEdit";
+            return USER_EDIT;
+        } else if (place instanceof DocumentsPlace) {
+        	return DOCUMENTS;
         }
         
-        return "Welcome";
+        return WELCOME;
     }
 }

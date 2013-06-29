@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardPlace;
+import com.webcommunity.client.page.documents.DocumentsPlace;
 import com.webcommunity.client.page.events.EventsPlace;
 import com.webcommunity.client.page.users.UsersPlace;
 import com.webcommunity.client.page.welcome.WelcomePlace;
@@ -27,6 +28,7 @@ public class NavigationWidgetImpl extends Composite implements NavigationWidget 
 	@UiField Anchor bulletinBoard;
 	@UiField Anchor events;
 	@UiField Anchor users;
+	@UiField Anchor documents;
 	
 	
 	public NavigationWidgetImpl(PlaceController placeController) {
@@ -53,5 +55,10 @@ public class NavigationWidgetImpl extends Composite implements NavigationWidget 
 	@UiHandler("users")
 	void onUsersClick(ClickEvent event) {
 		placeController.goTo(new UsersPlace());
+	}
+	
+	@UiHandler("documents")
+	void onDocumentsClick(ClickEvent event) {
+		placeController.goTo(new DocumentsPlace());
 	}
 }

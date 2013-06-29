@@ -3,6 +3,7 @@ package com.webcommunity.client;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.web.bindery.event.shared.EventBus;
 import com.webcommunity.client.page.bulletinBoard.BulletinBoardView;
+import com.webcommunity.client.page.documents.DocumentsView;
 import com.webcommunity.client.page.events.EventsView;
 import com.webcommunity.client.page.useredit.UserEditView;
 import com.webcommunity.client.page.users.UsersView;
@@ -21,4 +22,5 @@ public interface ClientFactory {
     EventsView getEventsView();
     UsersView getUsersView();
 	UserEditView getUserEditView();
+	DocumentsView getDocumentsView();
 }
