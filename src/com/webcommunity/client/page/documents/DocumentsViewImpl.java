@@ -41,7 +41,7 @@ public class DocumentsViewImpl extends Composite implements DocumentsView {
 				dokumentLinksTable.setHTML(row, 0, constructDocumentLink(link));
 			}
 		} else {
-			dokumentLinksTable.setText(0, 0, "Login pågrævet");
+			dokumentLinksTable.setText(0, 0, "Login påkrævet");
 		}
 	}
 	
