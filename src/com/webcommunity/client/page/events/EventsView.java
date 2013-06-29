@@ -5,8 +5,8 @@ import com.webcommunity.shared.events.EventEntry;
 
 public interface EventsView extends IsWidget {
 	
-	public void setPresenter(Presenter presenter);
-	public void updateEvents(EventEntry[] result);
+	void setPresenter(Presenter presenter);
+	void updateEvents(EventEntry[] result);
 	
     public interface Presenter {
 		void addNewEvent(EventEntry eventEntry);

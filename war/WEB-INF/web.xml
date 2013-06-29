@@ -73,6 +73,17 @@
     <url-pattern>/webcommunity/bulletinBoardService</url-pattern>
   </servlet-mapping>
   
+  <!-- documents servlet -->
+  <servlet>
+    <servlet-name>documentsService</servlet-name>
+    <servlet-class>com.webcommunity.server.documents.DocumentsServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>documentsService</servlet-name>
+    <url-pattern>/webcommunity/documentsService</url-pattern>
+  </servlet-mapping>
+  
   <!-- cron mail dispatch servlet -->
   <servlet>
     <servlet-name>cronMailDispatchHandler</servlet-name>

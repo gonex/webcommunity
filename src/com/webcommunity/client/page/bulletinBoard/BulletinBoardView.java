@@ -5,9 +5,9 @@ import com.webcommunity.shared.bulletinBoard.PostingEntry;
 
 public interface BulletinBoardView extends IsWidget {
 
-	public void setPresenter(Presenter presenter);
-	public void updatePostings(PostingEntry[] result);
-	public void goToStart();
+	void setPresenter(Presenter presenter);
+	void updatePostings(PostingEntry[] result);
+	void goToStart();
 
     public interface Presenter {
 		void getPostings();
