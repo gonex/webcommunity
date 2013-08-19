@@ -1,6 +1,8 @@
 package com.webcommunity.client.page.users;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.google.gwt.core.client.GWT;
@@ -33,13 +35,13 @@ public class UsersViewImpl extends Composite implements UsersView {
 	
 	private Presenter presenter;
 	private PlaceController placeController;
-	private Set<String> emailSelections;
+	private List<String> emailSelections;
 
 	public UsersViewImpl(PlaceController placeController) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		this.placeController = placeController;
-		this.emailSelections = new HashSet<String>();
+		this.emailSelections = new ArrayList<String>();
 	}
 
 	@Override
@@ -86,8 +88,9 @@ public class UsersViewImpl extends Composite implements UsersView {
 	}
 	
 	private void updateEmailSelections() {
+		Set<String> filter = new HashSet<String>(emailSelections);
 		StringBuilder stringBuilder = new StringBuilder();
-		for (String email : emailSelections) {
+		for (String email : filter) {
 			if (!isNullOrEmpty(email)) {
 				if (stringBuilder.length() > 0) {
 					stringBuilder.append(", ");
