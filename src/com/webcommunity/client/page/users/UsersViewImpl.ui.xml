@@ -8,7 +8,7 @@
 		<h2>Beboere</h2>
 		<p>
 		<g:HorizontalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
-			<g:VerticalPanel width="550px" horizontalAlignment="ALIGN_LEFT">
+			<g:VerticalPanel width="625px" horizontalAlignment="ALIGN_LEFT">
 				<g:FlexTable ui:field="usersTable" width="100%"/>
 				<g:FlexTable ui:field="emailSelectionsTable" width="100%"/>
 				<g:Anchor ui:field="userEdit" text="Ret mine oplysninger" styleName="navigation-link" visible="false" ></g:Anchor>

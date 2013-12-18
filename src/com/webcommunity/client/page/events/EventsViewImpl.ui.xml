@@ -12,7 +12,7 @@
 		<h2>Begivenheder</h2>
 		<p>
 		<g:HorizontalPanel horizontalAlignment="ALIGN_CENTER" width="100%">
-			<g:VerticalPanel width="550px" horizontalAlignment="ALIGN_RIGHT">
+			<g:VerticalPanel width="625px" horizontalAlignment="ALIGN_RIGHT">
 				<g:FlexTable ui:field="eventsTable" width="100%"/>
 				<g:Button width="84px" ui:field="addDialog" styleName="{style.add-button}" visible="false" >Tilføj</g:Button>
 			</g:VerticalPanel>
